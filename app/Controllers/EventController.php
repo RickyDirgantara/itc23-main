@@ -57,7 +57,7 @@ class EventController extends ResourceController
      *
      * @return mixed
      */
-    public function create($id = null)
+    public function create()
     {
         $validation =  \Config\Services::validation();
         $validation->setRules([
@@ -76,10 +76,10 @@ class EventController extends ResourceController
                 "phone" => $this->request->getPost('phone'),
                 "instansi" => $this->request->getPost('instansi')
             ];
-            $event->create($query);
+            $event->insert($query);
             return redirect('admin/events');
         }
-        return redirect()->to('admin/events/edit');
+        return view('admin/pages/acara/tambah');   
     }
 
     public function update($id = null)
