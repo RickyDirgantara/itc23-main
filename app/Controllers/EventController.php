@@ -63,7 +63,7 @@ class EventController extends ResourceController
 
     /**
      * Return the editable properties of a resource object
-     *
+     * updated
      * @return mixed
      */
     public function edit($id = null)
