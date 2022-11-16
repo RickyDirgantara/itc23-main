@@ -41,27 +41,6 @@ class EventController extends ResourceController
     }
 
     /**
-     * Create a new resource object, from "posted" parameters
-     *
-     * @return mixed
-     */
-    public function create()
-    {
-        $validation =  \Config\Services::validation();
-        $validation->setRules(['judul' => 'required']);
-        $isDataValid = $validation->withRequest($this->request)->run();
-        if($isDataValid){
-            $event = new EventModel();
-            $query = [
-                "judul" => $this->request->getPost('judul')
-            ];
-            $event->insert($query);
-            return redirect('admin/events');
-        }
-        return view('admin/pages/acara/tambah');
-    }
-
-    /**
      * Return the editable properties of a resource object
      * updated
      * @return mixed
@@ -78,6 +57,31 @@ class EventController extends ResourceController
      *
      * @return mixed
      */
+    public function create($id = null)
+    {
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'instansi' => 'required'
+        ]);
+        $isDataValid = $validation->withRequest($this->request)->run();
+        if($isDataValid){
+            $event = new EventModel();
+            $query = [
+                "nim" => $this->request->getPost('nim'),
+                "name" => $this->request->getPost('name'),
+                "email" => $this->request->getPost('email'),
+                "phone" => $this->request->getPost('phone'),
+                "instansi" => $this->request->getPost('instansi')
+            ];
+            $event->create($query);
+            return redirect('admin/events');
+        }
+        return redirect()->to('admin/events/edit');
+    }
+
     public function update($id = null)
     {
         $validation =  \Config\Services::validation();

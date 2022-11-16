@@ -22,9 +22,9 @@
                         <?php }?>
                         <p>Nama</p>
                         <input type="text" name="nama" placeholder="Ex: Rajendra Nohan" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
-                        <?php if($validation->getError('nama')) {?>
+                        <?php if($validation->getError('name')) {?>
                         <div class="bg-red-100 border border-red-400 text-red-700 px-2 my-2 py-2 rounded relative" role="alert">
-                            <span class="block sm:inline"><?= $error = $validation->getError('nama'); ?></span>
+                            <span class="block sm:inline"><?= $error = $validation->getError('name'); ?></span>
                         </div>
                         <?php }?>
                         <p>Email</p>
@@ -36,9 +36,9 @@
                         <?php }?>
                         <p>Nomor Telepon</p>
                         <input type="text" name="telepon" placeholder="Ex: 085157573143  " class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
-                        <?php if($validation->getError('telepon')) {?>
+                        <?php if($validation->getError('phone')) {?>
                         <div class="bg-red-100 border border-red-400 text-red-700 px-2 my-2 py-2 rounded relative" role="alert">
-                            <span class="block sm:inline"><?= $error = $validation->getError('telepon'); ?></span>
+                            <span class="block sm:inline"><?= $error = $validation->getError('phone'); ?></span>
                         </div>
                         <?php }?>
                         <p>Instansi</p>
